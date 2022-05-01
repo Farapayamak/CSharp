@@ -8,7 +8,7 @@ Here we've provided a complete 3rd-party library (SDK) for C# developers that co
 
 ## Instructions
 ### REST
-For consuming the REST web service, You can use our provided (https://www.nuget.org/packages/Farapayamak.RestClient)[nuget package] or manually add the _RestClient_ file from the _lib_ folder into your project.
+For consuming the REST web service, You can use our provided (https://www.nuget.org/packages/Farapayamak.RestClient)[nuget_package] or manually add the _RestClient_ file from the _lib_ folder into your project.
 
 ```
 Install-Package Farapayamak.RestClient -Version 1.1.0
