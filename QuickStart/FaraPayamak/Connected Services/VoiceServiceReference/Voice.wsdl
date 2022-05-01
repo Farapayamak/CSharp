@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendSMSWithSpeechText">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="smsBody" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="speechBody" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSWithSpeechTextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMSWithSpeechTextResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSWithSpeechTextBySchduleDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="smsBody" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="speechBody" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="scheduleDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSWithSpeechTextBySchduleDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMSWithSpeechTextBySchduleDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendSMSWithSpeechTextStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="recId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendSMSWithSpeechTextStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSendSMSWithSpeechTextStatusResult" type="tns:AutoSpeechTextList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AutoSpeechTextList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SpeechBody" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SMSBody" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SMSSenderNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SMSRecID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="SMSDeliveryStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VoiceDeliveryStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RepeatVoice" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InsertDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReqStatus" type="s:unsignedByte" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendBulkSpeechText">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="body" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="receivers" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DateToSend" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="repeatCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendBulkSpeechTextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendBulkSpeechTextResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendBulkVoiceSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="voiceFileId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="receivers" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DateToSend" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="repeatCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendBulkVoiceSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendBulkVoiceSMSResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadVoiceFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="base64StringFile" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadVoiceFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UploadVoiceFileResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="AutoSpeechTextList" nillable="true" type="tns:AutoSpeechTextList" />
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendSMSWithSpeechTextSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMSWithSpeechText" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithSpeechTextSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSWithSpeechTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithSpeechTextBySchduleDateSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMSWithSpeechTextBySchduleDate" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithSpeechTextBySchduleDateSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSWithSpeechTextBySchduleDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSendSMSWithSpeechTextStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSendSMSWithSpeechTextStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetSendSMSWithSpeechTextStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSendSMSWithSpeechTextStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendBulkSpeechTextSoapIn">
+    <wsdl:part name="parameters" element="tns:SendBulkSpeechText" />
+  </wsdl:message>
+  <wsdl:message name="SendBulkSpeechTextSoapOut">
+    <wsdl:part name="parameters" element="tns:SendBulkSpeechTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendBulkVoiceSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendBulkVoiceSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendBulkVoiceSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendBulkVoiceSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadVoiceFileSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadVoiceFile" />
+  </wsdl:message>
+  <wsdl:message name="UploadVoiceFileSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadVoiceFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithSpeechTextHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="smsBody" type="s:string" />
+    <wsdl:part name="speechBody" type="s:string" />
+    <wsdl:part name="from" type="s:string" />
+    <wsdl:part name="to" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithSpeechTextHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithSpeechTextBySchduleDateHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="smsBody" type="s:string" />
+    <wsdl:part name="speechBody" type="s:string" />
+    <wsdl:part name="from" type="s:string" />
+    <wsdl:part name="to" type="s:string" />
+    <wsdl:part name="scheduleDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithSpeechTextBySchduleDateHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSendSMSWithSpeechTextStatusHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="recId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSendSMSWithSpeechTextStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:AutoSpeechTextList" />
+  </wsdl:message>
+  <wsdl:message name="SendBulkSpeechTextHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="body" type="s:string" />
+    <wsdl:part name="receivers" type="s:string" />
+    <wsdl:part name="DateToSend" type="s:string" />
+    <wsdl:part name="repeatCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendBulkSpeechTextHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendBulkVoiceSMSHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="voiceFileId" type="s:string" />
+    <wsdl:part name="receivers" type="s:string" />
+    <wsdl:part name="DateToSend" type="s:string" />
+    <wsdl:part name="repeatCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendBulkVoiceSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UploadVoiceFileHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="base64StringFile" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UploadVoiceFileHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithSpeechTextHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="smsBody" type="s:string" />
+    <wsdl:part name="speechBody" type="s:string" />
+    <wsdl:part name="from" type="s:string" />
+    <wsdl:part name="to" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithSpeechTextHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithSpeechTextBySchduleDateHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="smsBody" type="s:string" />
+    <wsdl:part name="speechBody" type="s:string" />
+    <wsdl:part name="from" type="s:string" />
+    <wsdl:part name="to" type="s:string" />
+    <wsdl:part name="scheduleDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithSpeechTextBySchduleDateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSendSMSWithSpeechTextStatusHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="recId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSendSMSWithSpeechTextStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:AutoSpeechTextList" />
+  </wsdl:message>
+  <wsdl:message name="SendBulkSpeechTextHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="body" type="s:string" />
+    <wsdl:part name="receivers" type="s:string" />
+    <wsdl:part name="DateToSend" type="s:string" />
+    <wsdl:part name="repeatCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendBulkSpeechTextHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendBulkVoiceSMSHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="voiceFileId" type="s:string" />
+    <wsdl:part name="receivers" type="s:string" />
+    <wsdl:part name="DateToSend" type="s:string" />
+    <wsdl:part name="repeatCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendBulkVoiceSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UploadVoiceFileHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="base64StringFile" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UploadVoiceFileHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:portType name="VoiceSoap">
+    <wsdl:operation name="SendSMSWithSpeechText">
+      <wsdl:input message="tns:SendSMSWithSpeechTextSoapIn" />
+      <wsdl:output message="tns:SendSMSWithSpeechTextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithSpeechTextBySchduleDate">
+      <wsdl:input message="tns:SendSMSWithSpeechTextBySchduleDateSoapIn" />
+      <wsdl:output message="tns:SendSMSWithSpeechTextBySchduleDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendSMSWithSpeechTextStatus">
+      <wsdl:input message="tns:GetSendSMSWithSpeechTextStatusSoapIn" />
+      <wsdl:output message="tns:GetSendSMSWithSpeechTextStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkSpeechText">
+      <wsdl:input message="tns:SendBulkSpeechTextSoapIn" />
+      <wsdl:output message="tns:SendBulkSpeechTextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkVoiceSMS">
+      <wsdl:input message="tns:SendBulkVoiceSMSSoapIn" />
+      <wsdl:output message="tns:SendBulkVoiceSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadVoiceFile">
+      <wsdl:input message="tns:UploadVoiceFileSoapIn" />
+      <wsdl:output message="tns:UploadVoiceFileSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="VoiceHttpGet">
+    <wsdl:operation name="SendSMSWithSpeechText">
+      <wsdl:input message="tns:SendSMSWithSpeechTextHttpGetIn" />
+      <wsdl:output message="tns:SendSMSWithSpeechTextHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithSpeechTextBySchduleDate">
+      <wsdl:input message="tns:SendSMSWithSpeechTextBySchduleDateHttpGetIn" />
+      <wsdl:output message="tns:SendSMSWithSpeechTextBySchduleDateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendSMSWithSpeechTextStatus">
+      <wsdl:input message="tns:GetSendSMSWithSpeechTextStatusHttpGetIn" />
+      <wsdl:output message="tns:GetSendSMSWithSpeechTextStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkSpeechText">
+      <wsdl:input message="tns:SendBulkSpeechTextHttpGetIn" />
+      <wsdl:output message="tns:SendBulkSpeechTextHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkVoiceSMS">
+      <wsdl:input message="tns:SendBulkVoiceSMSHttpGetIn" />
+      <wsdl:output message="tns:SendBulkVoiceSMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadVoiceFile">
+      <wsdl:input message="tns:UploadVoiceFileHttpGetIn" />
+      <wsdl:output message="tns:UploadVoiceFileHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="VoiceHttpPost">
+    <wsdl:operation name="SendSMSWithSpeechText">
+      <wsdl:input message="tns:SendSMSWithSpeechTextHttpPostIn" />
+      <wsdl:output message="tns:SendSMSWithSpeechTextHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithSpeechTextBySchduleDate">
+      <wsdl:input message="tns:SendSMSWithSpeechTextBySchduleDateHttpPostIn" />
+      <wsdl:output message="tns:SendSMSWithSpeechTextBySchduleDateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendSMSWithSpeechTextStatus">
+      <wsdl:input message="tns:GetSendSMSWithSpeechTextStatusHttpPostIn" />
+      <wsdl:output message="tns:GetSendSMSWithSpeechTextStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkSpeechText">
+      <wsdl:input message="tns:SendBulkSpeechTextHttpPostIn" />
+      <wsdl:output message="tns:SendBulkSpeechTextHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkVoiceSMS">
+      <wsdl:input message="tns:SendBulkVoiceSMSHttpPostIn" />
+      <wsdl:output message="tns:SendBulkVoiceSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadVoiceFile">
+      <wsdl:input message="tns:UploadVoiceFileHttpPostIn" />
+      <wsdl:output message="tns:UploadVoiceFileHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VoiceSoap" type="tns:VoiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSMSWithSpeechText">
+      <soap:operation soapAction="http://tempuri.org/SendSMSWithSpeechText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithSpeechTextBySchduleDate">
+      <soap:operation soapAction="http://tempuri.org/SendSMSWithSpeechTextBySchduleDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendSMSWithSpeechTextStatus">
+      <soap:operation soapAction="http://tempuri.org/GetSendSMSWithSpeechTextStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkSpeechText">
+      <soap:operation soapAction="http://tempuri.org/SendBulkSpeechText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkVoiceSMS">
+      <soap:operation soapAction="http://tempuri.org/SendBulkVoiceSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadVoiceFile">
+      <soap:operation soapAction="http://tempuri.org/UploadVoiceFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VoiceSoap12" type="tns:VoiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSMSWithSpeechText">
+      <soap12:operation soapAction="http://tempuri.org/SendSMSWithSpeechText" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithSpeechTextBySchduleDate">
+      <soap12:operation soapAction="http://tempuri.org/SendSMSWithSpeechTextBySchduleDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendSMSWithSpeechTextStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetSendSMSWithSpeechTextStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkSpeechText">
+      <soap12:operation soapAction="http://tempuri.org/SendBulkSpeechText" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkVoiceSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendBulkVoiceSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadVoiceFile">
+      <soap12:operation soapAction="http://tempuri.org/UploadVoiceFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VoiceHttpGet" type="tns:VoiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SendSMSWithSpeechText">
+      <http:operation location="/SendSMSWithSpeechText" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithSpeechTextBySchduleDate">
+      <http:operation location="/SendSMSWithSpeechTextBySchduleDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendSMSWithSpeechTextStatus">
+      <http:operation location="/GetSendSMSWithSpeechTextStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkSpeechText">
+      <http:operation location="/SendBulkSpeechText" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkVoiceSMS">
+      <http:operation location="/SendBulkVoiceSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadVoiceFile">
+      <http:operation location="/UploadVoiceFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VoiceHttpPost" type="tns:VoiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SendSMSWithSpeechText">
+      <http:operation location="/SendSMSWithSpeechText" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithSpeechTextBySchduleDate">
+      <http:operation location="/SendSMSWithSpeechTextBySchduleDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendSMSWithSpeechTextStatus">
+      <http:operation location="/GetSendSMSWithSpeechTextStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkSpeechText">
+      <http:operation location="/SendBulkSpeechText" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBulkVoiceSMS">
+      <http:operation location="/SendBulkVoiceSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadVoiceFile">
+      <http:operation location="/UploadVoiceFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Voice">
+    <wsdl:port name="VoiceSoap" binding="tns:VoiceSoap">
+      <soap:address location="http://api.payamak-panel.com/post/Voice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VoiceSoap12" binding="tns:VoiceSoap12">
+      <soap12:address location="http://api.payamak-panel.com/post/Voice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VoiceHttpGet" binding="tns:VoiceHttpGet">
+      <http:address location="http://api.payamak-panel.com/post/Voice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VoiceHttpPost" binding="tns:VoiceHttpPost">
+      <http:address location="http://api.payamak-panel.com/post/Voice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
