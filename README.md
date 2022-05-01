@@ -8,13 +8,13 @@ Here we've provided a complete 3rd-party library (SDK) for C# developers that co
 
 ## Instructions
 ### REST
-For consuming the REST web service, You can use our provided (https://www.nuget.org/packages/Farapayamak.RestClient)[nuget_package] or manually add the _RestClient_ file from the _lib_ folder into your project.
+For consuming the REST web service, You can use our provided [nuget package](https://www.nuget.org/packages/Farapayamak.RestClient) or manually add the _RestClient_ file from the _lib_ folder into your project.
 
 ```
 Install-Package Farapayamak.RestClient -Version 1.1.0
 ```
 ### SOAP
-For consuming the SOAP web service, you can add our (http://api.payamak-panel.com)[endpoints] (listed below) as _service reference_ to your project or take a look at the provided _QuickStart_ project to make the life easier.
+For consuming the SOAP web service, you can add our [endpoints](http://api.payamak-panel.com) (listed below) as _service reference_ to your project or take a look at the provided _QuickStart_ project to make the life easier.
 
 - http://api.payamak-panel.com/post/send.asmx
 - http://api.payamak-panel.com/post/contacts.asmx
