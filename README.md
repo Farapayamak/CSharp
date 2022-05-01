@@ -14,7 +14,7 @@ For consuming the REST web service, You can use our provided (https://www.nuget.
 Install-Package Farapayamak.RestClient -Version 1.1.0
 ```
 ### SOAP
-For consuming the SOAP web service, you can add (http://api.payamak-panel.com)[our endpoints] (listed below) as _service reference_ to your project or take a look at the provided _QuickStart_ project to make the life easier.
+For consuming the SOAP web service, you can add our (http://api.payamak-panel.com)[endpoints] (listed below) as _service reference_ to your project or take a look at the provided _QuickStart_ project to make the life easier.
 
 - http://api.payamak-panel.com/post/send.asmx
 - http://api.payamak-panel.com/post/contacts.asmx
@@ -134,7 +134,7 @@ soapClient.UploadVoiceFile(title, base64StringFile);
 soapClient.AddContact(groupIds, firstname, lastname, nickname, corporation, mobilenumber,
         phone, fax, birthdate, email, gender, province, city, address, postalCode, additionaldate,
         additionaltext, descriptions);
-soapClient.AddContactEvents(contactId, eventName, eventType, eventDate)
+soapClient.AddContactEvents(contactId, eventName, eventType, eventDate);
 soapClient.AddGroup(groupName, Descriptions, showToChilds);
 soapClient.ChangeContact(contactId, firstname, lastname, nickname, corporation, mobilenumber,
         phone, fax, email, gender, province, city, address, postalCode, contactStatus,
