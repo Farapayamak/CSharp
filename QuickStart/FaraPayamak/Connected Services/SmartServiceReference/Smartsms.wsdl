@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s1="http://tempuri.org/AbstractTypes" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendSmartSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromSupportOne" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromSupportTwo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmartSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmartSMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMultipleSmartSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromSupportOne" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromSupportTwo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendMultipleSmartSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMultipleSmartSMSResult" type="tns:ArrayOfLong" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLong">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="long" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSmartSMSDeliveries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="tns:ArrayOfLong" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSmartSMSDeliveriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSmartSMSDeliveriesResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSmartSMSDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSmartSMSDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSmartSMSDetailsResult" type="tns:SmsQueueList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SmsQueueList">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sender" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Receiver" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InsertDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FetchDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecID" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryStatus" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfLong" nillable="true" type="tns:ArrayOfLong" />
+      <s:element name="ArrayOfInt" nillable="true" type="tns:ArrayOfInt" />
+      <s:element name="SmsQueueList" nillable="true" type="tns:SmsQueueList" />
+    </s:schema>
+    <s:schema targetNamespace="http://tempuri.org/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendSmartSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSmartSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendSmartSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmartSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMultipleSmartSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMultipleSmartSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendMultipleSmartSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMultipleSmartSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSmartSMSDeliveriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSmartSMSDeliveries" />
+  </wsdl:message>
+  <wsdl:message name="GetSmartSMSDeliveriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSmartSMSDeliveriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSmartSMSDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSmartSMSDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetSmartSMSDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSmartSMSDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSmartSMSHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="to" type="s:string" />
+    <wsdl:part name="text" type="s:string" />
+    <wsdl:part name="from" type="s:string" />
+    <wsdl:part name="fromSupportOne" type="s:string" />
+    <wsdl:part name="fromSupportTwo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmartSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMultipleSmartSMSHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="to" type="s1:StringArray" />
+    <wsdl:part name="text" type="s1:StringArray" />
+    <wsdl:part name="from" type="s:string" />
+    <wsdl:part name="fromSupportOne" type="s:string" />
+    <wsdl:part name="fromSupportTwo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMultipleSmartSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLong" />
+  </wsdl:message>
+  <wsdl:message name="GetSmartSMSDeliveriesHttpGetIn">
+    <wsdl:part name="Id" type="s1:StringArray" />
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSmartSMSDeliveriesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInt" />
+  </wsdl:message>
+  <wsdl:message name="GetSmartSMSDetailsHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="Id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSmartSMSDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:SmsQueueList" />
+  </wsdl:message>
+  <wsdl:message name="SendSmartSMSHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="to" type="s:string" />
+    <wsdl:part name="text" type="s:string" />
+    <wsdl:part name="from" type="s:string" />
+    <wsdl:part name="fromSupportOne" type="s:string" />
+    <wsdl:part name="fromSupportTwo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSmartSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMultipleSmartSMSHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="to" type="s1:StringArray" />
+    <wsdl:part name="text" type="s1:StringArray" />
+    <wsdl:part name="from" type="s:string" />
+    <wsdl:part name="fromSupportOne" type="s:string" />
+    <wsdl:part name="fromSupportTwo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMultipleSmartSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLong" />
+  </wsdl:message>
+  <wsdl:message name="GetSmartSMSDeliveriesHttpPostIn">
+    <wsdl:part name="Id" type="s1:StringArray" />
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSmartSMSDeliveriesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInt" />
+  </wsdl:message>
+  <wsdl:message name="GetSmartSMSDetailsHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="Id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSmartSMSDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:SmsQueueList" />
+  </wsdl:message>
+  <wsdl:portType name="SmartSmsSoap">
+    <wsdl:operation name="SendSmartSMS">
+      <wsdl:input message="tns:SendSmartSMSSoapIn" />
+      <wsdl:output message="tns:SendSmartSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMultipleSmartSMS">
+      <wsdl:input message="tns:SendMultipleSmartSMSSoapIn" />
+      <wsdl:output message="tns:SendMultipleSmartSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDeliveries">
+      <wsdl:input message="tns:GetSmartSMSDeliveriesSoapIn" />
+      <wsdl:output message="tns:GetSmartSMSDeliveriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDetails">
+      <wsdl:input message="tns:GetSmartSMSDetailsSoapIn" />
+      <wsdl:output message="tns:GetSmartSMSDetailsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SmartSmsHttpGet">
+    <wsdl:operation name="SendSmartSMS">
+      <wsdl:input message="tns:SendSmartSMSHttpGetIn" />
+      <wsdl:output message="tns:SendSmartSMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMultipleSmartSMS">
+      <wsdl:input message="tns:SendMultipleSmartSMSHttpGetIn" />
+      <wsdl:output message="tns:SendMultipleSmartSMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDeliveries">
+      <wsdl:input message="tns:GetSmartSMSDeliveriesHttpGetIn" />
+      <wsdl:output message="tns:GetSmartSMSDeliveriesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDetails">
+      <wsdl:input message="tns:GetSmartSMSDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetSmartSMSDetailsHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SmartSmsHttpPost">
+    <wsdl:operation name="SendSmartSMS">
+      <wsdl:input message="tns:SendSmartSMSHttpPostIn" />
+      <wsdl:output message="tns:SendSmartSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMultipleSmartSMS">
+      <wsdl:input message="tns:SendMultipleSmartSMSHttpPostIn" />
+      <wsdl:output message="tns:SendMultipleSmartSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDeliveries">
+      <wsdl:input message="tns:GetSmartSMSDeliveriesHttpPostIn" />
+      <wsdl:output message="tns:GetSmartSMSDeliveriesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDetails">
+      <wsdl:input message="tns:GetSmartSMSDetailsHttpPostIn" />
+      <wsdl:output message="tns:GetSmartSMSDetailsHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SmartSmsSoap" type="tns:SmartSmsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSmartSMS">
+      <soap:operation soapAction="http://tempuri.org/SendSmartSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMultipleSmartSMS">
+      <soap:operation soapAction="http://tempuri.org/SendMultipleSmartSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDeliveries">
+      <soap:operation soapAction="http://tempuri.org/GetSmartSMSDeliveries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDetails">
+      <soap:operation soapAction="http://tempuri.org/GetSmartSMSDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmartSmsSoap12" type="tns:SmartSmsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSmartSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendSmartSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMultipleSmartSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendMultipleSmartSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDeliveries">
+      <soap12:operation soapAction="http://tempuri.org/GetSmartSMSDeliveries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetSmartSMSDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmartSmsHttpGet" type="tns:SmartSmsHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SendSmartSMS">
+      <http:operation location="/SendSmartSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMultipleSmartSMS">
+      <http:operation location="/SendMultipleSmartSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDeliveries">
+      <http:operation location="/GetSmartSMSDeliveries" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDetails">
+      <http:operation location="/GetSmartSMSDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmartSmsHttpPost" type="tns:SmartSmsHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SendSmartSMS">
+      <http:operation location="/SendSmartSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMultipleSmartSMS">
+      <http:operation location="/SendMultipleSmartSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDeliveries">
+      <http:operation location="/GetSmartSMSDeliveries" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmartSMSDetails">
+      <http:operation location="/GetSmartSMSDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SmartSms">
+    <wsdl:port name="SmartSmsSoap" binding="tns:SmartSmsSoap">
+      <soap:address location="https://api.payamak-panel.com/post/Smartsms.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmartSmsSoap12" binding="tns:SmartSmsSoap12">
+      <soap12:address location="https://api.payamak-panel.com/post/Smartsms.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmartSmsHttpGet" binding="tns:SmartSmsHttpGet">
+      <http:address location="https://api.payamak-panel.com/post/Smartsms.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmartSmsHttpPost" binding="tns:SmartSmsHttpPost">
+      <http:address location="https://api.payamak-panel.com/post/Smartsms.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -76,6 +76,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\SmartServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\UsersServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -165,6 +170,10 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SendServiceReference\send.wsdl" />
+    <None Include="Connected Services\SmartServiceReference\FaraPayamak.SmartServiceReference.SmsQueueList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SmartServiceReference\Smartsms.wsdl" />
     <None Include="Connected Services\UsersServiceReference\FaraPayamak.UsersServiceReference.City.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -199,6 +208,7 @@
     <WCFMetadataStorage Include="Connected Services\ReceiveServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\ScheduleServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\SendServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\SmartServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\UsersServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\VoiceServiceReference\" />
   </ItemGroup>
@@ -303,6 +313,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ScheduleServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SmartServiceReference\Smartsms.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SmartServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SmartServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SmartServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
