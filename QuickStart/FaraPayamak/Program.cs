@@ -1,4 +1,4 @@
-﻿using Farapayamak.RestClient;
+﻿using Farapayamak;
 
 
 namespace FaraPayamak
